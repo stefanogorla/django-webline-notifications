@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.template import Library
 from webline_notifications.models import Notification
 from django.template.defaultfilters import stringfilter
@@ -7,7 +8,8 @@ register = Library()
 
 @register.inclusion_tag('notification/nav_link.html')
 def notifications_link(user, limit=None):
-    all_count = Notification.objects.count()
+    custom_view = getattr(settings, 'WEBLINE_NOTIFICATIONS_CUSTOM_VIEW', False)
+    all_count = Notification.objects.filter(user=user).count()
     not_seen_count = Notification.objects.not_seen(user).count()
     if limit is None:
         notifications = Notification.objects.filter(
@@ -30,6 +32,7 @@ def notifications_link(user, limit=None):
     return {'notifications': notifications_list,
             'all_count': all_count,
             'not_seen_count': not_seen_count,
+            'custom_view': custom_view,
             }
 
 

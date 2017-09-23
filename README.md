@@ -3,6 +3,11 @@ Django webline Notifications
 ###Screen shot
 ![screen shot](http://i.imgur.com/TxoZeaG.png)
 
+My contribution
+===============
+This is a fork of https://github.com/alireza-molaee/django-webline-notifications
+Readme is under progress.
+
 ###What is Django webline Notifications
 This is a django application to notify user about events.
 You can simply inform user about all kind of updates.

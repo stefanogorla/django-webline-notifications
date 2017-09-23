@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from models import Notification
+from webline_notifications.models import Notification
 from django.http import HttpResponse, HttpResponseForbidden
 
 

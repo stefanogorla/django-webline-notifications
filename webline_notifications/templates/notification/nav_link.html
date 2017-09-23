@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load Notifications_tag  %}
 <div class="ns-container">
 <button id="ns-btn-dropdown" class="ns-nav-btn dropdown-toggle">
@@ -6,18 +7,18 @@
 </button>
 <div class="ns-box-dropdown">
     <ul class="ns-list-dropdown">
-        {% if not_seen_count != 0 %}<li class="ns-li-header">You have {{ all_count }} notification{{ all_count|pluralize }}</li>{% else %}<li class="ns-li-header ns-no-notification">you don't have new Notification</li>{% endif %}
+        {% if not_seen_count != 0 %}<li class="ns-li-header">{% trans "You have" %} {{ all_count }} {{ all_count|pluralize:_("notification,notifications") }}</li>{% else %}<li class="ns-li-header ns-no-notification">{% blocktrans %}You don't have new notifications{% endblocktrans %}</li>{% endif %}
         {% if notifications %}
             {% for n in notifications %}
                 <li class="ns-li-menu">
-                    <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} style="color: {{ n.color }} !important;" href="{% if n.url %}{{ n.url }}{% else %}#{% endif %}">
+                    <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} style="color: {{ n.color }} !important;" href="{% if n.url %}{{ n.url }}{% else %}{% if custom_view %}{% url custom_view %}{% else %}{% url 'admin:webline_notifications_notification_changelist' %}{% endif %}{% endif %}" title="{{ n.content }}">
                         <i class="{{ n.icon|icon_type }} {{ n.icon }}" style="color: {{ n.color }};"></i> {{ n.content|truncatechars:30 }}
                         {% if n.send_date %}<span class="ns-seen-date">{{ n.send_date|timesince }}</span>{% endif %}
                     </a>
                 </li>
             {% endfor %}
         {% endif %}
-        <li class="ns-li-footer"><a href="{% url 'admin:webline_notifications_notification_changelist' %}">View all</a></li>
+        <li class="ns-li-footer"><a href="{% if custom_view %}{% url custom_view %}{% else %}{% url 'admin:webline_notifications_notification_changelist' %}{% endif %}">{% trans "View all" context "notifications" %}</a></li>
     </ul>
 </div>
 
