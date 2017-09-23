@@ -1,7 +1,7 @@
 from io import open
-from distutils.core import setup
+from setuptools import setup
 
-long_description = open('README.md', encoding="utf-8").read()
+long_description = open('README.md', encoding='utf-8').read()
 
 install_requires = [
     'django>=1.8'

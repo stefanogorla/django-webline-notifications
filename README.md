@@ -30,13 +30,7 @@ If you want to clone the main repository:
 ```
 $ git clone https://github.com/stefanogorla/django-webline-notifications.git
 $ cd django-webline-notifications
-$ python setup.py install
-```
-
-In alternative, you can use pip:
-
-```
-$ pip install git+https://github.com/stefanogorla/django-webline-notifications.git
+$ pip install .
 ```
 
 ###install on django
