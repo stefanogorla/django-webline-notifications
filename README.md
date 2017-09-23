@@ -1,12 +1,12 @@
-Django webline Notifications
-===========================
-###Screen shot
-![screen shot](http://i.imgur.com/TxoZeaG.png)
-
 My contribution
 ===============
 This is a fork of https://github.com/alireza-molaee/django-webline-notifications
 Readme is under progress.
+
+Django webline Notifications
+===========================
+###Screen shot
+![screen shot](http://i.imgur.com/TxoZeaG.png)
 
 ###What is Django webline Notifications
 This is a django application to notify user about events.
@@ -28,10 +28,17 @@ $ pip install django-webline-notifications
 If you want to clone the main repository:
 
 ```
-$ git clone https://github.com/alireza-molaee/django-webline-notifications.git
+$ git clone https://github.com/stefanogorla/django-webline-notifications.git
 $ cd django-webline-notifications
 $ python setup.py install
 ```
+
+In alternative, you can use pip:
+
+```
+$ pip install git+https://github.com/stefanogorla/django-webline-notifications.git
+```
+
 ###install on django
 now you can add django-simple-notifications to the settings.py file:
 
@@ -42,11 +49,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 ```
-Then run migrations:
+Then generate and run migrations:
 
 ```
-$ python manage.py migrate webline-notifications
+$ python manage.py makemigrations webline_notifications
+$ python manage.py migrate webline_notifications
 ```
+
 Then collectstatic:
 
 ```
