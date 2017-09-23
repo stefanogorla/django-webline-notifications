@@ -9,7 +9,7 @@ install_requires = [
 
 setup(
     name='django-webline-notifications',
-    version='0.1',
+    version='1.2',
     packages=['webline_notifications'],
     include_package_data=True,
     url='https://github.com/stefanogorla/django-webline-notifications',
