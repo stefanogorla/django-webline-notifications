@@ -27,7 +27,8 @@ def notifications_link(user, limit=None):
             'content': n.content,
             'send_date': n.send_date,
             'seen_date': n.seen_date,
-            'url': n.url}
+            'pk': n.pk,
+        }
         notifications_list.append(notifications_dic)
     return {'notifications': notifications_list,
             'all_count': all_count,

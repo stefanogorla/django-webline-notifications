@@ -20,11 +20,6 @@ You can simply inform user about all kind of updates.
  
 ##How to install
 ###Downloading the package
-Probably the best way to install is by using PIP:
-
-```
-$ pip install django-webline-notifications
-```
 If you want to clone the main repository:
 
 ```

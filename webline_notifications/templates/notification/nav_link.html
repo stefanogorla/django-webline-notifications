@@ -11,7 +11,7 @@
         {% if notifications %}
             {% for n in notifications %}
                 <li class="ns-li-menu">
-                    <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} style="color: {{ n.color }} !important;" href="{% if n.url %}{{ n.url }}{% else %}{% if custom_view %}{% url custom_view %}{% else %}{% url 'admin:webline_notifications_notification_changelist' %}{% endif %}{% endif %}" title="{{ n.content }}">
+                    <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} style="color: {{ n.color }} !important;" href="{% url 'webline_notifications:dispatch_url' n.pk %}" title="{{ n.content }}">
                         <i class="{{ n.icon|icon_type }} {{ n.icon }}" style="color: {{ n.color }};"></i> {{ n.content|truncatechars:30 }}
                         {% if n.send_date %}<span class="ns-seen-date">{{ n.send_date|timesince }}</span>{% endif %}
                     </a>
